@@ -2,7 +2,22 @@
 
     <script>
 
-        
+        function computerPlay(pick){
+
+            computerMove = Math.floor((Math.random() * 3) + 1);
+            
+            if (computerMove == 1){
+                return 'rock';
+            }
+            else if (computerMove == 2){
+                return 'paper';
+            }
+            else if (computerMove == 3){
+                return 'scissors';
+            }
+        }
+
+
 
     </script>
 
