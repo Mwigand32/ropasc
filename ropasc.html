@@ -1,9 +1,12 @@
 <html>
 
+    <meta charset = UTF-8>
+    
     <script>
 
         function computerPlay(pick){
 
+            // Randomly select a number between 1-3
             computerMove = Math.floor((Math.random() * 3) + 1);
             
             if (computerMove == 1){
@@ -17,6 +20,44 @@
             }
         }
 
+        function fullRound(playerSelection, computerSelection){
+
+            let validMove = false;
+            // Use a loop to check for a valid entry BEFORE match begins
+            while(validMove == false){
+                playerSelection = prompt('Please enter "rock", "paper", or "scissors".', '')
+                playerSelection = playerSelection.toLowerCase();
+                if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
+                    validMove = true;
+                }
+            }
+
+            computerSelection = computerPlay();
+
+            // Compare player and computer selections and declare a winner
+            if (playerSelection == computerSelection){
+                return (playerSelection + ' vs. ' + computerSelection + ' ... It\'s a tie!')
+            }
+            else if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+                     (playerSelection == 'paper' && computerSelection == 'rock') ||
+                     (playerSelection == 'scissors' && computerSelection == 'paper')){
+                        return (playerSelection + ' vs. ' + computerSelection + ' ... You win!')
+                     }
+            else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
+                     (playerSelection == 'paper' && computerSelection == 'scissors') ||
+                     (playerSelection == 'scissors' && computerSelection == 'rock')){
+                         return (playerSelection + ' vs. ' + computerSelection + ' ... You lose!')
+                     }
+
+        }
+
+    
+    let result;
+    result = fullRound();
+    console.log(result);
+
+
+    
 
 
     </script>
