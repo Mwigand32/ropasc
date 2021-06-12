@@ -54,6 +54,12 @@
 
         }
 
+        function resetScore(){
+            playerScore = 0;
+            computerScore = 0;
+            tieScore = 0;
+        }
+
         function game(){
             let result;
             const gameDisplay = document.querySelector('#gameDisplay');
@@ -64,24 +70,22 @@
                 button.addEventListener('click',() => {
                     result = fullRound(button.id);
                     gameDisplay.textContent = result;
-                    scoreDisplay.textContent = (`WINS: ${playerScore}, LOSSES: ${computerScore}, TIES: ${tieScore}`);          
+                    scoreDisplay.textContent = (`Wins: ${playerScore}, Losses: ${computerScore}, Ties: ${tieScore}`);
+                    
+                    if (playerScore >= 5){
+                        result = 'You won the game! Congratulations!';
+                        gameDisplay.textContent = result;
+                        resetScore();
+                    }
+                    else if (computerScore >= 5){
+                        result = 'Game Over... Better Luck Next Time...';
+                        gameDisplay.textContent = result;
+                        resetScore();
+                    }
                 });
             });
 
             
-            /* NOT NEEDED YET
-            if (playerScore > computerScore){
-                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
-                Congratulations! You won!`)
-            }
-            else if (playerScore < computerScore){
-                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
-                You lost... Better luck next time!`)
-            }
-            else if (playerScore == computerScore){
-                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
-                It's a draw!`)
-            } */
         }
 
     let playerScore = 0;
@@ -89,7 +93,6 @@
     let tieScore = 0;
 
     game();
-
 
     </script>
 
