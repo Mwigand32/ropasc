@@ -1,12 +1,42 @@
 <html>
+
     <head>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <meta charset = UTF-8>
+    <style>
+        body{
+            margin-top: 50px;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: Bangers;
+            font-size: 36px;
+            background-color: rgb(0, 100, 200);
+        }
+
+        button{
+            font-size: 24px;
+            font-family: Bangers;
+            width: 100px;
+            background-color: rgb(255, 200, 128);
+        }
+
+        img{
+            width: 50px;
+
+        }
+
+        #finalDisplay{
+            color: rgb(255, 200, 128);
+        }
+
+    </style>
     </head>
 
+
     <body>
-        <button id="rock">ROCK</button>
-        <button id="paper">PAPER</button>
-        <button id="scissors">SCISSORS</button>
+        <button id="rock"><img src='./rock.png'><br>ROCK</button>
+        <button id="paper"><img src='./paper.png'><br>PAPER</button>
+        <button id="scissors"><img src='./scissors.png'><br>SCISSORS</button>
         <br><br>
         <div id="gameDisplay"></div>
         <br>
