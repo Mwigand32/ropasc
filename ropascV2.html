@@ -11,6 +11,8 @@
         <div id="gameDisplay"></div>
         <br>
         <div id="scoreDisplay"></div>
+        <br>
+        <div id="finalDisplay"></div>
     </body>
     
 
@@ -64,6 +66,7 @@
             let result;
             const gameDisplay = document.querySelector('#gameDisplay');
             const scoreDisplay = document.querySelector('#scoreDisplay');
+            const finalDisplay = document.querySelector('#finalDisplay');
             const moves = document.querySelectorAll('button');
 
             moves.forEach((button) => {
@@ -73,14 +76,15 @@
                     scoreDisplay.textContent = (`Wins: ${playerScore}, Losses: ${computerScore}, Ties: ${tieScore}`);
                     
                     if (playerScore >= 5){
-                        result = 'You won the game! Congratulations!';
-                        gameDisplay.textContent = result;
+                        finalDisplay.textContent = 'You won the game! Congratulations!';
                         resetScore();
                     }
                     else if (computerScore >= 5){
-                        result = 'Game Over... Better Luck Next Time...';
-                        gameDisplay.textContent = result;
+                        finalDisplay.textContent = 'Game Over... Better Luck Next Time...';
                         resetScore();
+                    }
+                    else{
+                        finalDisplay.textContent = '';
                     }
                 });
             });
