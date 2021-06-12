@@ -8,7 +8,9 @@
         <button id="paper">PAPER</button>
         <button id="scissors">SCISSORS</button>
         <br><br>
-        <div id="display"></div>
+        <div id="gameDisplay"></div>
+        <br>
+        <div id="scoreDisplay"></div>
     </body>
     
 
@@ -54,12 +56,15 @@
 
         function game(){
             let result;
-            const gameDisplay = document.querySelector('#display')
+            const gameDisplay = document.querySelector('#gameDisplay');
+            const scoreDisplay = document.querySelector('#scoreDisplay');
             const moves = document.querySelectorAll('button');
+
             moves.forEach((button) => {
                 button.addEventListener('click',() => {
                     result = fullRound(button.id);
                     gameDisplay.textContent = result;
+                    scoreDisplay.textContent = (`WINS: ${playerScore}, LOSSES: ${computerScore}, TIES: ${tieScore}`);          
                 });
             });
 
