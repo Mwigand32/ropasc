@@ -25,6 +25,9 @@
 
             while(validMove == false){
                 playerSelection = prompt('Please enter "rock", "paper", or "scissors".', '')
+                if (playerSelection == null){
+                    continue;
+                } 
                 playerSelection = playerSelection.toLowerCase();
                 if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
                     validMove = true;
