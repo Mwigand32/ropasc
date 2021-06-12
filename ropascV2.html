@@ -31,9 +31,6 @@
 
         function fullRound(playerSelection, computerSelection){
 
-
-
-
             computerSelection = computerPlay();
 
             if (playerSelection == computerSelection){
@@ -57,12 +54,12 @@
 
         function game(){
             let result;
-
+            const gameDisplay = document.querySelector('#display')
             const moves = document.querySelectorAll('button');
             moves.forEach((button) => {
                 button.addEventListener('click',() => {
                     result = fullRound(button.id);
-                    alert(result);
+                    gameDisplay.textContent = result;
                 });
             });
 
