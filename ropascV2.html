@@ -1,0 +1,87 @@
+<html>
+
+    <meta charset = UTF-8>
+
+    <script>
+
+        function computerPlay(pick){
+
+            computerMove = Math.floor((Math.random() * 3) + 1);
+            
+            if (computerMove == 1){
+                return 'rock';
+            }
+            else if (computerMove == 2){
+                return 'paper';
+            }
+            else if (computerMove == 3){
+                return 'scissors';
+            }
+        }
+
+        function fullRound(playerSelection, computerSelection){
+
+            let validMove = false;
+
+            while(validMove == false){
+                playerSelection = prompt('Please enter "rock", "paper", or "scissors".', '')
+                playerSelection = playerSelection.toLowerCase();
+                if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
+                    validMove = true;
+                }
+            }
+
+            computerSelection = computerPlay();
+
+            if (playerSelection == computerSelection){
+                tieScore++;
+                return (playerSelection + ' vs. ' + computerSelection + ' ... It\'s a tie!')
+            }
+            else if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+                     (playerSelection == 'paper' && computerSelection == 'rock') ||
+                     (playerSelection == 'scissors' && computerSelection == 'paper')){
+                        playerScore++;
+                        return (playerSelection + ' vs. ' + computerSelection + ' ... You win!')
+                     }
+            else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
+                     (playerSelection == 'paper' && computerSelection == 'scissors') ||
+                     (playerSelection == 'scissors' && computerSelection == 'rock')){
+                         computerScore++;
+                         return (playerSelection + ' vs. ' + computerSelection + ' ... You lose!')
+                     }
+
+        }
+
+        function game(){
+            let result;
+            // 5-round game loop removed for now
+            // for (let roundCount = 1; roundCount < 6; roundCount++){
+            //    console.log('Round ' + roundCount);
+                result = fullRound();
+                console.log(result);
+            //}
+
+            if (playerScore > computerScore){
+                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
+                Congratulations! You won!`)
+            }
+            else if (playerScore < computerScore){
+                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
+                You lost... Better luck next time!`)
+            }
+            else if (playerScore == computerScore){
+                alert(`FINAL SCORE: ${playerScore} win(s), ${computerScore} loss(es), ${tieScore} tie(s) \n
+                It's a draw!`)
+            }
+        }
+
+    let playerScore = 0;
+    let computerScore = 0;
+    let tieScore = 0;
+
+    game();
+
+
+    </script>
+
+</html>
